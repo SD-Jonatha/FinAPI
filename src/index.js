@@ -137,8 +137,9 @@ app.post("/deposit", verifyIfExistsAccountCPF, (request, response) => {
 
  app.delete("/account", verifyIfExistsAccountCPF, (request, response)=> {
   const {customer} = request;
+ const index =customers.indexOf(customer)
 
-  customers.splice(customer, 1);
+ customers.splice(index, 1);
 
   return response.status(200).json(customers)
  })
